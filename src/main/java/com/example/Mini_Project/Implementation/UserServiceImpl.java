@@ -1,5 +1,7 @@
 package com.example.Mini_Project.Implementation;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,5 +26,12 @@ public class UserServiceImpl implements UserService{
 		if (user != null && user.getPassword().equals(password)) return user;
 	
 	throw new UserNotFoundException("User Not found");
+	}
+
+	public List<User> find(String name) {
+		List<User> user=u1.findByName(name);
+		if (user != null) return user;
+	
+	return null;
 	}
 }
